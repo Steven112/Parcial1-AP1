@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Parcial1_AP1.UI.Registros;
 
 namespace Parcial1_AP1
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void RegistroEvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form registro = new RegistroDeEvaluacion();
+            registro.Show();
         }
     }
 }

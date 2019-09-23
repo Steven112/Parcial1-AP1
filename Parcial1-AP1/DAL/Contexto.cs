@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial1_AP1.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace Parcial1_AP1.DAL
 {
-    public class Contexto: DbContext
+     public class Contexto: DbContext 
     {
-        
+        public DbSet<Evaluacion> Evaluacion { get; set; }
 
-        public Contexto() : base("ConStr")
+        public Contexto():base("ConStr")
         {
 
         }
+       
     }
 }

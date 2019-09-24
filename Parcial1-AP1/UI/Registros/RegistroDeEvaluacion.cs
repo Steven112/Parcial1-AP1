@@ -30,6 +30,8 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.Logrado = Convert.ToDecimal(LogradotextBox.Text);
             decimal total = evaluacion.Valor - evaluacion.Logrado;
             evaluacion.Perdido= evaluacion.Valor / total*10;
+            //evaluacion.Pronostico = Convert.ToInt32(PronosticocomboBox.Text);
+            
 
             
 
@@ -44,6 +46,7 @@ namespace Parcial1_AP1.UI.Registros
             ValortextBox.Text = Convert.ToString(evaluacion.Valor);
             LogradotextBox.Text = Convert.ToString(evaluacion.Logrado);
             PerdidotextBox.Text = Convert.ToString(evaluacion.Perdido);
+            //PronosticocomboBox.Text = Convert.ToString(evaluacion.Pronostico);
 
             
         }

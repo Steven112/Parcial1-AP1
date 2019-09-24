@@ -29,8 +29,9 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.Valor = Convert.ToDecimal(ValortextBox.Text);
             evaluacion.Logrado = Convert.ToDecimal(LogradotextBox.Text);
             decimal total = evaluacion.Valor - evaluacion.Logrado;
-            evaluacion.Perdido = total;
+            evaluacion.Perdido= evaluacion.Valor / total*10;
 
+            
 
             return evaluacion;
         }
@@ -43,6 +44,7 @@ namespace Parcial1_AP1.UI.Registros
             ValortextBox.Text = Convert.ToString(evaluacion.Valor);
             LogradotextBox.Text = Convert.ToString(evaluacion.Logrado);
             PerdidotextBox.Text = Convert.ToString(evaluacion.Perdido);
+
             
         }
 
@@ -182,6 +184,12 @@ namespace Parcial1_AP1.UI.Registros
             {
                 MyerrorProvider.SetError(IDnumericUpDown, "No se pudo eliminar el registro");
             }
+        }
+
+        private void PerdidotextBox_TextChanged(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }

@@ -140,6 +140,7 @@
             this.PerdidotextBox.Name = "PerdidotextBox";
             this.PerdidotextBox.Size = new System.Drawing.Size(82, 20);
             this.PerdidotextBox.TabIndex = 8;
+            this.PerdidotextBox.TextChanged += new System.EventHandler(this.PerdidotextBox_TextChanged);
             // 
             // label3
             // 

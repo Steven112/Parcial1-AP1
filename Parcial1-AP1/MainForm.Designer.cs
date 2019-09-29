@@ -31,13 +31,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.evaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaEvaluacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.evaluacionToolStripMenuItem});
+            this.evaluacionToolStripMenuItem,
+            this.consultasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(500, 24);
@@ -58,6 +61,21 @@
             this.registroEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registroEvaluacionToolStripMenuItem.Text = "Registro Evaluacion";
             this.registroEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.RegistroEvaluacionToolStripMenuItem_Click);
+            // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultaEvaluacionToolStripMenuItem});
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // consultaEvaluacionToolStripMenuItem
+            // 
+            this.consultaEvaluacionToolStripMenuItem.Name = "consultaEvaluacionToolStripMenuItem";
+            this.consultaEvaluacionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.consultaEvaluacionToolStripMenuItem.Text = "Consulta Evaluacion";
+            this.consultaEvaluacionToolStripMenuItem.Click += new System.EventHandler(this.ConsultaEvaluacionToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -80,6 +98,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem evaluacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroEvaluacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaEvaluacionToolStripMenuItem;
     }
 }
 

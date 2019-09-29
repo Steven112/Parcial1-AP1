@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Parcial1_AP1.UI.Registros;
+using Parcial1_AP1.UI.Consultas;
 
 namespace Parcial1_AP1
 {
@@ -22,6 +23,12 @@ namespace Parcial1_AP1
         {
             Form registro = new RegistroDeEvaluacion();
             registro.Show();
+        }
+
+        private void ConsultaEvaluacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form consulta = new ConsultaEvaluacion();
+            consulta.Show();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.Valor = Convert.ToDecimal(ValortextBox.Text);
             evaluacion.Logrado = Convert.ToDecimal(LogradotextBox.Text);
             decimal total = evaluacion.Valor - evaluacion.Logrado;
-            evaluacion.Perdido= evaluacion.Valor / total*10;
+            evaluacion.Perdido= total;
             //evaluacion.Pronostico = Convert.ToInt32(PronosticocomboBox.Text);
             
 
@@ -69,19 +69,38 @@ namespace Parcial1_AP1.UI.Registros
                 paso = false;
             }
 
-            if (Convert.ToDecimal(ValortextBox.Text)>31)
+
+            if (Convert.ToDecimal(ValortextBox.Text) < 0)
             {
                 MyerrorProvider.SetError(ValortextBox, "Campo llenado incorrectamente");
                 ValortextBox.Focus();
                 paso = false;
             }
 
-            if (Convert.ToDecimal(LogradotextBox.Text) > 31)
+            if (Convert.ToDecimal(LogradotextBox.Text) < 0)
             {
                 MyerrorProvider.SetError(LogradotextBox, "Campo llenado incorrectamente");
                 LogradotextBox.Focus();
                 paso = false;
             }
+
+            if (Convert.ToDecimal(LogradotextBox.Text) > Convert.ToDecimal(ValortextBox.Text))
+            {
+                MyerrorProvider.SetError(LogradotextBox, "Campo llenado incorrectamente");
+                MyerrorProvider.SetError(ValortextBox, "Campo llenado incorrectamente");
+                LogradotextBox.Focus();
+                ValortextBox.Focus();
+
+                paso = false;
+            }
+            
+
+            /*if (Convert.ToDecimal(PerdidotextBox.Text) < 0)
+            {
+                MyerrorProvider.SetError(PerdidotextBox, "Campo llenado incorrectamente");
+                PerdidotextBox.Focus();
+                paso = false;
+            }*/
             return paso;
         }
 
@@ -160,7 +179,7 @@ namespace Parcial1_AP1.UI.Registros
 
             if (evaluacion != null)
             {
-                MessageBox.Show("Registro Encontrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
                 LlenaCampo(evaluacion);
             }
             else

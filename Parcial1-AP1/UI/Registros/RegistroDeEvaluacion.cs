@@ -28,12 +28,23 @@ namespace Parcial1_AP1.UI.Registros
             evaluacion.Estudiante = EstudiantetextBox.Text;
             evaluacion.Valor = Convert.ToDecimal(ValortextBox.Text);
             evaluacion.Logrado = Convert.ToDecimal(LogradotextBox.Text);
-            decimal total = evaluacion.Valor - evaluacion.Logrado;
-            evaluacion.Perdido= total;
-            //evaluacion.Pronostico = Convert.ToInt32(PronosticocomboBox.Text);
-            
+            evaluacion.Perdido = Convert.ToDecimal(PerdidotextBox.Text);
 
-            
+            if (PronosticocomboBox.SelectedIndex == 0)
+            {
+                evaluacion.Pronostico = "Continuar";
+            }
+            if (PronosticocomboBox.SelectedIndex == 1)
+            {
+                evaluacion.Pronostico = "Suspenso";
+            }
+            if (PronosticocomboBox.SelectedIndex == 2)
+            {
+                evaluacion.Pronostico = "Retirar";
+            }
+
+
+
 
             return evaluacion;
         }
@@ -46,7 +57,7 @@ namespace Parcial1_AP1.UI.Registros
             ValortextBox.Text = Convert.ToString(evaluacion.Valor);
             LogradotextBox.Text = Convert.ToString(evaluacion.Logrado);
             PerdidotextBox.Text = Convert.ToString(evaluacion.Perdido);
-            //PronosticocomboBox.Text = Convert.ToString(evaluacion.Pronostico);
+            PronosticocomboBox.SelectedItem = evaluacion.Pronostico;
 
             
         }
@@ -95,12 +106,7 @@ namespace Parcial1_AP1.UI.Registros
             }
             
 
-            /*if (Convert.ToDecimal(PerdidotextBox.Text) < 0)
-            {
-                MyerrorProvider.SetError(PerdidotextBox, "Campo llenado incorrectamente");
-                PerdidotextBox.Focus();
-                paso = false;
-            }*/
+            
             return paso;
         }
 
@@ -212,6 +218,69 @@ namespace Parcial1_AP1.UI.Registros
         {
             
             
+        }
+
+        private void ValortextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 0;
+            decimal logrado = 0;
+
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text))
+            {
+                valor = decimal.Parse(ValortextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text))
+            {
+                logrado = decimal.Parse(LogradotextBox.Text);
+            }
+
+            decimal total = valor - logrado;
+            PerdidotextBox.Text = total.ToString();
+
+            if (total >= 25 && total <= 30)
+            {
+                PronosticocomboBox.SelectedIndex = 1;
+            }
+            if (total < 25)
+            {
+                PronosticocomboBox.SelectedIndex = 0;
+            }
+            if (total > 30)
+            {
+                PronosticocomboBox.SelectedIndex = 2;
+            }
+        }
+
+        private void LogradotextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal valor = 0;
+            decimal logrado = 0;
+
+            if (!string.IsNullOrWhiteSpace(ValortextBox.Text) && LogradotextBox.Text != "-")
+            {
+                valor = decimal.Parse(ValortextBox.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(LogradotextBox.Text) && LogradotextBox.Text != "-")
+            {
+                logrado = decimal.Parse(LogradotextBox.Text);
+            }
+
+            decimal total = valor - logrado;
+
+            PerdidotextBox.Text = total.ToString();
+
+            if (total >= 25 && total <= 30)
+            {
+                PronosticocomboBox.SelectedIndex = 1;
+            }
+            if (total < 25)
+            {
+                PronosticocomboBox.SelectedIndex = 0;
+            }
+            if (total > 30)
+            {
+                PronosticocomboBox.SelectedIndex = 2;
+            }
         }
     }
 }

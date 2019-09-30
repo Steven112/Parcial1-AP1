@@ -43,6 +43,7 @@
             // 
             // Buscarbutton
             // 
+            this.Buscarbutton.Image = global::Parcial1_AP1.Properties.Resources.icons8_borrar_búsqueda_24;
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Buscarbutton.Location = new System.Drawing.Point(713, 33);
             this.Buscarbutton.Name = "Buscarbutton";

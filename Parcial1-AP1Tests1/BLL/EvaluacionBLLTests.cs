@@ -20,12 +20,12 @@ namespace Parcial1_AP1.BLL.Tests
 
             evaluacion.EvaluacionID = 8;
             evaluacion.Fecha = DateTime.Now;
-            evaluacion.Estudiante = string.Empty;
+            evaluacion.Estudiante = "Steven";
             evaluacion.Valor = 31;
             evaluacion.Logrado = 21;
             decimal total = evaluacion.Valor - evaluacion.Logrado;
             evaluacion.Perdido = total;
-            evaluacion.Pronostico = 0;
+            evaluacion.Pronostico = "Continuar";
             paso = EvaluacionBLL.Guardar(evaluacion);
             Assert.AreEqual(paso,true);
         }
@@ -36,7 +36,7 @@ namespace Parcial1_AP1.BLL.Tests
             Evaluacion evaluacion = new Evaluacion();
             bool paso;
 
-            evaluacion.EvaluacionID = 2;
+            evaluacion.EvaluacionID = 1;
             evaluacion.Estudiante = "Jose";
            
             paso = EvaluacionBLL.Modificar(evaluacion);
@@ -48,7 +48,7 @@ namespace Parcial1_AP1.BLL.Tests
         {
             bool paso = false; ;
             Evaluacion evaluacion = new Evaluacion();
-            evaluacion = EvaluacionBLL.Buscar(2);
+            evaluacion = EvaluacionBLL.Buscar(1);
 
             if (evaluacion != null)
                 paso = true;
